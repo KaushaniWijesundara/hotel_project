@@ -1,0 +1,47 @@
+<div class="container">
+  <div class="header">
+    <h1>Search for Rooms</h1>
+  </div>
+
+  <div class="input-container">
+    <div class="input-group">
+      <label for="checkInDate">Check-in Date:</label>
+      <input type="date" id="checkInDate" name="checkInDate" [(ngModel)]="commonSearchCriteria.checkInDate" />
+    </div>
+
+    <div class="input-group">
+      <label for="numberOfNights">Number of Nights:</label>
+      <input type="number" id="numberOfNights" [(ngModel)]="commonSearchCriteria.numberOfNights"
+        name="numberOfNights" />
+    </div>
+  </div>
+
+  <div class="room-search-container">
+    <div *ngFor="let criteria of roomTypeSearchCriteriaList; let i = index" class="room-search">
+      <h2>Room {{ i + 1 }}</h2>
+
+      <div class="input-group">
+        <label for="numberOfRooms">Number of Rooms:</label>
+        <input type="number" name="numberOfRooms" [(ngModel)]="criteria.numberOfRooms" required />
+      </div>
+
+      <div class="input-group">
+        <label for="numberOfAdults">Number of Adults:</label>
+        <input type="number" name="numberOfAdults" [(ngModel)]="criteria.numberOfAdults" required />
+      </div>
+      <br>
+
+      <button (click)="removeRoom(i)" class="remove-button">Remove Room</button>
+    </div>
+  </div>
+
+  <button (click)="addRoom()" class="add-button" [ngClass]="{'disabled-button': !isPreviousRoomFilled()}"
+    [disabled]="!isPreviousRoomFilled()">
+    Add Room
+  </button>
+  <button (click)="searchRoomTypes()" class="search-button"
+    [ngClass]="{'disabled-button': !commonSearchCriteria.checkInDate || !commonSearchCriteria.numberOfNights}"
+    [disabled]="!commonSearchCriteria.checkInDate || !commonSearchCriteria.numberOfNights">
+    Search
+  </button>
+</div>

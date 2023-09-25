@@ -1,0 +1,48 @@
+<h2 class="mt-4 mb-3">Hotel Contract List</h2>
+<button (click)="addHotelContract()" class="btn btn-info"
+  style="margin-right: 20px; color: #ffffff; background-color: rgb(34, 133, 100);">New Contract</button>
+
+
+<div class="mt-4 d-flex justify-content-end align-items-center">
+  <div class="input-group" style="width: 500px;">
+    <input type="text" class="form-control" [(ngModel)]="searchTerm" placeholder="Search by Hotel Name"
+      style="height: 50px;" />
+    <div class="input-group-append">
+      <button class="btn btn-primary" style="height: 50px; background-color: rgb(24, 134, 98);" (click)="search()">
+        <i class="fas fa-search"></i>
+      </button>
+    </div>
+  </div>
+</div>
+
+<br>
+<div class="mt-4">
+</div>
+<div class="card-container">
+  <div class="card custom-card"
+    *ngFor="let hotelContract of hotelContracts | paginate: { itemsPerPage: itemsPerPage, currentPage: p }">
+    <div class="card-body">
+      <h5 class="card-title">{{ hotelContract.hotel.hotelName }} ({{ hotelContract.hotel.city }})</h5>
+      <h5>Contract ID : {{hotelContract.id}}</h5>
+
+      <p class="card-text">
+        <strong>Contract Start Date:</strong> {{ hotelContract.contractStartDate | date: 'mediumDate' }}<br>
+        <strong>Contract End Date:</strong> {{ hotelContract.contractEndDate | date: 'mediumDate' }}
+      </p>
+      <button (click)="updateHotelContract(hotelContract.id)" class="btn btn-info" style="margin-right: 20px;">Edit
+        Contract</button>
+      <button (click)="deleteHotelContract(hotelContract.id)" class="btn btn-danger" style="margin-right: 20px;">Delete
+        Contract</button>
+      <br><br>
+      <button (click)="addRoomTypes(hotelContract.id)" class="btn btn-success" style="margin-right: 20px;">Add Room
+        Types</button>
+      <button (click)="viewRoomTypes(hotelContract.id)" class="btn btn-dark" style="margin-right: 20px;">View Room
+        Types</button>
+    </div>
+  </div>
+
+</div>
+<div class="pagination-container">
+  <pagination-controls (pageChange)="p = $event"></pagination-controls>
+
+</div>

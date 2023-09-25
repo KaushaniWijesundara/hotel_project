@@ -1,0 +1,30 @@
+.navbar.bg-primary {
+  background-color: #aaa3a3 !important;
+}
+
+.navbar-dark .navbar-nav .nav-link {
+  color: #ffffff !important;
+}
+
+.navbar-dark .navbar-nav .nav-link:hover {
+  color: #771d1d !important;
+}
+
+.container.mt-4 {
+  max-width: 1500px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #faf3f3;
+}
+
+h1 {
+  font-size: 2rem;
+  text-align: center;
+  color: #741a1a;
+}
+
+
+.nav-link.active {
+  font-weight: bold;
+  color: #4e1010 !important;
+}

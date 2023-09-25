@@ -1,0 +1,17 @@
+<h2 class="mt-4 mb-3">Room Types for Hotel Contract</h2>
+
+<div class="card-container">
+  <div class="card custom-card" *ngFor="let roomType of roomTypes">
+    <div class="card-body">
+      <h4 class="card-title">{{ roomType.roomType }}</h4>
+      <p class="card-text">
+        <strong>Room Type ID:</strong> {{ roomType.id }}<br>
+        <strong>Price per Person:</strong> LKR {{ roomType.pricePerPerson }}<br>
+        <strong>Max Adults:</strong> {{ roomType.maxAdults }}<br>
+        <strong>Number of Rooms:</strong> {{ roomType.noOfRooms }}<br>
+        <strong>Available Rooms:</strong> {{ roomType.availableRooms }}<br>
+        
+      </p>
+    </div>
+  </div>
+</div>

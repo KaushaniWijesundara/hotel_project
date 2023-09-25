@@ -1,0 +1,51 @@
+<h2 class="mt-4 mb-3">Room Type List</h2>
+
+<div>
+  <app-room-type-search (searchComplete)="handleSearchResult($event)"></app-room-type-search>
+</div>
+
+<div *ngIf="roomTypeResults && roomTypeResults.length > 0">
+  <!-- Pagination buttons -->
+  <div class="pagination">
+    <button (click)="previousRoom()" [disabled]="currentRoomIndex === 0">Previous Room</button>
+    <button (click)="nextRoom()" [disabled]="currentRoomIndex === roomTypeResults.length - 1">Next Room</button>
+  </div>
+
+  <!-- Display results for the current room -->
+  <h2 class="mt-4 mb-3">Room Type List - Room {{ currentRoomIndex + 1 }}</h2>
+
+  <div class="card-container">
+    <div class="card custom-card" *ngFor="let roomType of roomTypeResults[currentRoomIndex]">
+      <div class="card-body">
+        <h4 class="card-title">{{ roomType.roomType }}</h4>
+        <h5 class="hotel-name">Hotel Name: {{ roomType.contract.hotel.hotelName }} ({{ roomType.contract.hotel.city }})
+        </h5>
+        <h5 class="contract-id">Contract ID: {{ roomType.contract.id }}</h5>
+        <strong>Max Adults:</strong> {{ roomType.maxAdults }}<br>
+
+        <div class="price-info">
+          <div>
+            <h4 class="price-per-person">Price per Person: LKR {{ roomType.pricePerPerson }}</h4>
+          </div>
+          <div>
+            <h4 class="price">Price: LKR {{ roomType.price }}</h4>
+          </div>
+          <div>
+            <h4 class="markup">Markup: LKR {{ roomType.markup }}</h4>
+          </div>
+          <div>
+            <h3 class="total-price">Total Price: LKR {{ roomType.totalPrice }}</h3>
+          </div>
+        </div>
+
+        <!-- Add availability check -->
+        <div>
+
+          <span *ngIf="isRoomTypeAvailable(roomType, numberOfRoomsInSearch); else unavailable"
+            style="margin-left: 80%; color: #ac1e48; font-weight: bolder; font-size: 15px;">Available</span>
+          <ng-template #unavailable>Unavailable</ng-template>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

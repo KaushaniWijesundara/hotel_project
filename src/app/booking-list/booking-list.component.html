@@ -1,0 +1,32 @@
+<div class="container">
+    <h2>Booking List</h2>
+
+    <button class="btn btn-success mb-3" (click)="createNewBooking()">Create New Booking</button>
+
+    <div class="row">
+        <div class="col-md-4" *ngFor="let booking of bookings">
+            <div class="card mb-4">
+                <div class="card-body">
+                    <h5 class="card-title">Booking ID: {{ booking.bookingId }}</h5>
+                    <p class="card-text">Customer Email: {{ booking.customerEmail }}</p>
+                    <p class="card-text">Room Type ID: {{ booking.roomTypeId }}</p>
+                    <p class="card-text">Check-in Date: {{ booking.checkinDate | date:'mediumDate' }}</p>
+                    <p class="card-text">Number of Nights: {{ booking.noOfNights }}</p>
+                    <p class="card-text">Number of Rooms: {{ booking.noOfRooms }}</p>
+                    <p class="card-text">Number of Adults: {{ booking.noOfAdults }}</p>
+                    <p class="card-text">Price Per Person: ${{ booking.pricePerPerson }}</p>
+                    <p class="card-text">Price: ${{ booking.price }}</p>
+                    <p class="card-text">Markup: ${{ booking.markup }}</p>
+                    <p class="card-text">Total Price: ${{ booking.totalPrice }}</p>
+                </div>
+                <div class="card-footer">
+                    <button class="btn btn-primary"
+                        (click)="booking.bookingId && updateBooking(booking.bookingId)">Update</button>
+                    <button class="btn btn-danger"
+                        (click)="booking.bookingId && confirmDelete(booking.bookingId)">Delete</button>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,32 @@
+<div class="container">
+  <h2>Hotel List</h2>
+
+  <button class="btn btn-primary" [routerLink]="['/hotels/create']">New Hotel</button>
+
+  <table class="table">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Hotel Name</th>
+        <th>City</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let hotel of hotels | paginate: { itemsPerPage: itemsPerPage, currentPage: p }; let i = index">
+        <!--<td>{{ (p - 1) * itemsPerPage + i + 1 }}</td> Calculate the displayed index -->
+        <td>{{ hotel.id }}</td>
+        <td>{{ hotel.hotelName }}</td>
+        <td>{{ hotel.city }}</td>
+        <td>
+          <button class="btn btn-primary" [routerLink]="['/hotels/update', hotel.id]">Edit</button>
+          <button class="btn btn-danger" (click)="deleteHotel(hotel.id)">Delete</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="pagination-container">
+    <pagination-controls (pageChange)="p = $event"></pagination-controls>
+  </div>
+</div>

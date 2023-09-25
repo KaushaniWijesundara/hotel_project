@@ -1,0 +1,53 @@
+<div class="col-md-6 offset-md-3">
+  <h3>Create Hotel Contract</h3>
+
+  <form (ngSubmit)="onSubmit()" #hotelContractForm="ngForm">
+    <div class="form-group">
+      <label>Select Hotel</label>
+      <ng-select [items]="filteredHotels" bindLabel="label" [(ngModel)]="hotelContract.hotel" name="hotel"
+        class="form-control custom-dropdown" [typeahead]="filterTerm$" required #hotelSelect="ngModel">
+        <ng-template #optionTemplate let-item="item">
+          {{ item.label }}
+        </ng-template>
+      </ng-select>
+
+      ]
+      <div *ngIf="hotelSelect.invalid && (hotelSelect.dirty || hotelSelect.touched)" class="alert alert-danger">
+        Hotel selection is required.
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label>Contract Start Date</label>
+      <input type="date" class="form-control" id="contractStartDate" [(ngModel)]="hotelContract.contractStartDate"
+        name="contractStartDate" required>
+
+      <div
+        *ngIf="hotelContractForm.controls['contractStartDate'].invalid && (hotelContractForm.controls['contractStartDate'].dirty || hotelContractForm.controls['contractStartDate'].touched)"
+        class="alert alert-danger">
+        Contract start date is required.
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label>Contract End Date</label>
+      <input type="date" class="form-control" id="contractEndDate" [(ngModel)]="hotelContract.contractEndDate"
+        name="contractEndDate" required>
+
+      <div
+        *ngIf="hotelContractForm.controls['contractEndDate'].invalid && (hotelContractForm.controls['contractEndDate'].dirty || hotelContractForm.controls['contractEndDate'].touched)"
+        class="alert alert-danger">
+        Contract end date is required.
+      </div>
+
+      <div *ngIf="hotelContractForm.hasError('dateBefore')" class="alert alert-danger">
+        Contract end date must be after the contract start date.
+      </div>
+    </div>
+
+    <br>
+
+    <button class="btn btn-warning" type="submit">Submit</button>
+    <button (click)="goToHotelContractList()" class="btn btn-secondary" style="margin-left: 20px;"> Cancel</button>
+  </form>
+</div>

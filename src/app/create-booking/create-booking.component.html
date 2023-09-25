@@ -1,0 +1,38 @@
+<div class="container">
+  <h2>Create Booking</h2>
+  <form (ngSubmit)="onSubmit()" #bookingForm="ngForm">
+    <div class="form-group">
+      <label for="customerEmail">Customer Email</label>
+      <input type="text" class="form-control" id="customerEmail" name="customerEmail"
+        [(ngModel)]="booking.customerEmail" required>
+    </div>
+    <div class="form-group">
+      <label for="roomTypeId">Room Type ID</label>
+      <input type="number" class="form-control" id="roomTypeId" name="roomTypeId" [(ngModel)]="booking.roomTypeId"
+        required>
+    </div>
+    <div class="form-group">
+      <label for="checkinDate">Check-in Date</label>
+      <input type="date" class="form-control" id="checkinDate" name="checkinDate" [(ngModel)]="booking.checkinDate"
+        required>
+    </div>
+    <div class="form-group">
+      <label for="noOfNights">Number of Nights</label>
+      <input type="number" class="form-control" id="noOfNights" name="noOfNights" [(ngModel)]="booking.noOfNights"
+        required>
+    </div>
+    <div class="form-group">
+      <label for="noOfAdults">Number of Adults</label>
+      <input type="number" class="form-control" id="noOfAdults" name="noOfAdults" [(ngModel)]="booking.noOfAdults"
+        required>
+    </div>
+    <div class="form-group">
+      <label for="noOfRooms">Number of Rooms</label>
+      <input type="number" class="form-control" id="noOfRooms" name="noOfRooms" [(ngModel)]="booking.noOfRooms"
+        required>
+    </div>
+
+
+    <button type="submit" class="btn btn-primary">Create</button>
+  </form>
+</div>

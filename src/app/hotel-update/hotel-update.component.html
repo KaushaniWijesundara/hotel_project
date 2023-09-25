@@ -1,0 +1,17 @@
+<div class="container">
+  <h2>Edit Hotel</h2>
+  <form (ngSubmit)="updateHotel()">
+    <div class="form-group">
+      <label for="hotelName">Hotel Name</label>
+      <input type="text" class="form-control" id="hotelName" [(ngModel)]="hotel.hotelName" name="hotelName" required>
+    </div>
+    <div class="form-group">
+      <label for="city">City</label>
+      <input type="text" class="form-control" id="city" [(ngModel)]="hotel.city" name="city" required>
+    </div>
+    <br>
+    <button type="submit" class="btn btn-warning">Update</button>
+    <button (click)="goToHotelList()" class="btn btn-secondary" style="margin-left: 20px;"> Cancel</button>
+
+  </form>
+</div>

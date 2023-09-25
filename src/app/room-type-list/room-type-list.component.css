@@ -1,0 +1,104 @@
+.card-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.custom-card {
+  width: 48%;
+  margin: 10px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+  background-color: #fff;
+}
+
+.card-title {
+  font-size: 20px;
+  font-weight: bold;
+  margin-top: 10px;
+  color: #680909;
+}
+
+.hotel-name {
+  font-size: 18px;
+  color: #d34f4f;
+}
+
+
+.contract-id {
+  font-size: 14px;
+  color: #777;
+}
+
+
+.max-adults {
+  font-size: 12px;
+  color: #555;
+}
+
+
+.price-per-person {
+  font-size: 12px;
+  color: #ac1e48;
+}
+
+
+.price {
+  font-size: 14px;
+  color: #009900;
+}
+
+
+.markup {
+  font-size: 12px;
+  color: #ff9900;
+}
+
+
+.total-price {
+  font-size: 22px;
+  font-weight: bold;
+  margin-top: 10px;
+  color: #28b87c;
+}
+
+
+.available {
+  font-size: 18px;
+  color: #009900;
+  font-weight: bold;
+}
+
+.unavailable {
+  font-size: 18px;
+  color: #ac1e48;
+  font-weight: bold;
+}
+
+
+.pagination {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.pagination button {
+  background-color: #007BFF;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  margin: 0 5px;
+  cursor: pointer;
+  font-size: 16px;
+  border-radius: 5px;
+}
+
+.pagination button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+  align-items: center;
+}
+
+.pagination button:hover {
+  background-color: #0056b3;
+}

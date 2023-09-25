@@ -1,0 +1,10 @@
+.custom-dropdown {
+    position: relative;
+    z-index: 9999;
+    background-color: #fff; 
+    border: 1px solid #ccc; 
+    min-height: 200px;
+    max-height: 500px; 
+    overflow-y: auto; 
+  }
+  

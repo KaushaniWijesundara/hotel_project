@@ -1,0 +1,29 @@
+<div class="col-md-6 offset-md-3">
+  <h3>Update Hotel Contract</h3>
+
+  <form (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label>Select Hotel</label>
+      <select class="form-control" [(ngModel)]="hotelContract.hotel.id" name="hotelId">
+        <option *ngFor="let hotel of hotels" [value]="hotel.id">
+          {{ hotel.id }} - {{ hotel.hotelName }} ({{ hotel.city }})
+        </option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label>Contract Start Date</label>
+      <input type="date" class="form-control" id="contractStartDate" [(ngModel)]="hotelContract.contractStartDate"
+        name="contractStartDate">
+    </div>
+    <div class="form-group">
+      <label>Contract End Date</label>
+      <input type="date" class="form-control" id="contractEndDate" [(ngModel)]="hotelContract.contractEndDate"
+        name="contractEndDate">
+    </div>
+    <br>
+
+    <button class="btn btn-warning" type="submit" style="margin-right: 20px;"> Submit</button>
+    <button (click)="goToHotelContractList()" class="btn btn-secondary"> Cancel</button>
+
+  </form>
+</div>
